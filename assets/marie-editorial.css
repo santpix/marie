@@ -1,0 +1,106 @@
+/* Marie Galvin Millinery — editorial art direction layer
+   Built on Shopify Horizon. Keeps Horizon commerce behavior intact. */
+
+:root {
+  --marie-ink: #111111;
+  --marie-paper: #f7f5f1;
+  --marie-rule: rgba(17,17,17,.18);
+  --marie-serif: "Cormorant Garamond", "Bodoni 72", Didot, "Times New Roman", serif;
+  --marie-sans: Inter, Helvetica, Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--marie-paper); color: var(--marie-ink); }
+
+/* Prestige/Vogue-like restraint: fine rules, uppercase microtype, editorial scale */
+.header-announcements, .announcement-bar {
+  font-family: var(--marie-sans);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 10px;
+}
+
+header-component, .header {
+  --header-logo-font-family: var(--marie-serif);
+  background: rgba(247,245,241,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header__heading, .header-logo, .header__heading-link {
+  font-family: var(--marie-serif) !important;
+  letter-spacing: .045em;
+}
+
+.header-menu a, .header__menu-item, nav a {
+  font-family: var(--marie-sans);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+}
+
+/* Home hero */
+.template-index .shopify-section:first-of-type h1,
+.template-index .shopify-section:first-of-type h2,
+.template-index .shopify-section:first-of-type [class*="heading"] {
+  font-family: var(--marie-serif);
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+/* Editorial product typography */
+.product-card h3, .product-card__title, [class*="product-card"] a {
+  font-family: var(--marie-serif);
+}
+
+.price, [class*="price"] {
+  font-family: var(--marie-sans);
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+/* Buttons should feel like fashion retail, not app UI */
+.button, button[type="submit"], [class*="button"] {
+  border-radius: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+}
+
+/* Product grids: quiet spacing and no card chrome */
+.product-card, [class*="product-card"] {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.product-card img, [class*="product-card"] img {
+  border-radius: 0 !important;
+  transition: transform .7s cubic-bezier(.2,.65,.3,1);
+}
+
+@media (hover:hover) {
+  .product-card:hover img, [class*="product-card"]:hover img { transform: scale(1.018); }
+}
+
+/* Section rhythm */
+.template-index main .shopify-section { border-color: var(--marie-rule); }
+
+/* Footer as magazine colophon */
+footer, .footer {
+  border-top: 1px solid var(--marie-rule);
+  font-family: var(--marie-sans);
+}
+footer h2, footer h3, .footer h2, .footer h3 { font-family: var(--marie-serif); font-weight: 400; }
+
+@media (min-width: 990px) {
+  /* centered luxury masthead */
+  header-component .header, .header {
+    min-height: 92px;
+  }
+  .template-index main .shopify-section + .shopify-section { margin-top: 24px; }
+}
+
+@media (max-width: 749px) {
+  .header-menu a, .header__menu-item, nav a { letter-spacing: .09em; }
+  .template-index main .shopify-section + .shopify-section { margin-top: 8px; }
+}
