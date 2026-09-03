@@ -23,14 +23,14 @@ jobs:
       - name: Download Marie supplied assets from Google Drive
         run: |
           mkdir -p assets
-          gdown --id 1XdcUsNIXJFZmQiWLBfv86nKZ8a8pIXyV -O assets/marie-hero-01.jpg
-          gdown --id 1NFpyqI4ZlKsz7M76sCZlDGPMopvr03vE -O assets/marie-hero-02.jpg
-          gdown --id 14G-6kb6ur6zTGC9krOVANQO5HqqciKa- -O assets/marie-hero-03.jpg
-          gdown --id 1WoR40io5XhC52TLMzGILnFb5a5bk0qTW -O assets/marie-lounging.jpg
-          gdown --id 14IBWcELyyPRBFIv-uSHSn6nybIOEX7vi -O assets/marie-blog-black-white.jpg
-          gdown --id 1-JHjIkTifft8U8JcyrsMTAee-H5Iifey -O assets/marie-blog-autumn.jpg
-          gdown --id 1pWBdP2omgFWaFVZ6kuWUN4NhCPFnClmY -O assets/marie-blog-yellow-paris.jpg
-          gdown --id 1R8HbZOjqB5RepwGizlxNuDOVRkG4fp8Q -O assets/marie-logo.jpg
+          gdown 1XdcUsNIXJFZmQiWLBfv86nKZ8a8pIXyV -O assets/marie-hero-01.jpg
+          gdown 1NFpyqI4ZlKsz7M76sCZlDGPMopvr03vE -O assets/marie-hero-02.jpg
+          gdown 14G-6kb6ur6zTGC9krOVANQO5HqqciKa- -O assets/marie-hero-03.jpg
+          gdown 1WoR40io5XhC52TLMzGILnFb5a5bk0qTW -O assets/marie-lounging.jpg
+          gdown 14IBWcELyyPRBFIv-uSHSn6nybIOEX7vi -O assets/marie-blog-black-white.jpg
+          gdown 1-JHjIkTifft8U8JcyrsMTAee-H5Iifey -O assets/marie-blog-autumn.jpg
+          gdown 1pWBdP2omgFWaFVZ6kuWUN4NhCPFnClmY -O assets/marie-blog-yellow-paris.jpg
+          gdown 1R8HbZOjqB5RepwGizlxNuDOVRkG4fp8Q -O assets/marie-logo.jpg
 
       - name: Verify image files
         run: |
