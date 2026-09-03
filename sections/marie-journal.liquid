@@ -10,6 +10,8 @@
     <div class="marie-journal__media">
       {% if section.settings.image != blank %}
         {{ section.settings.image | image_url: width: 2200 | image_tag: loading: 'lazy', widths: '750,1100,1500,2200', sizes: '(min-width: 990px) 58vw, 100vw', class: 'marie-journal__image' }}
+      {% elsif section.settings.fallback_asset != blank %}
+        <img class="marie-journal__image" src="{{ section.settings.fallback_asset | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
       {% else %}
         <div class="marie-journal__placeholder"></div>
       {% endif %}
@@ -27,7 +29,8 @@
   "tag": "section",
   "class": "marie-section",
   "settings": [
-    {"type":"image_picker","id":"image","label":"Image"},
+    {"type":"image_picker","id":"image","label":"Image override"},
+    {"type":"text","id":"fallback_asset","label":"Automatic asset filename"},
     {"type":"text","id":"eyebrow","label":"Eyebrow","default":"FROM THE JOURNAL"},
     {"type":"text","id":"heading","label":"Heading","default":"Notes from the atelier."},
     {"type":"richtext","id":"text","label":"Text","default":"<p>Stories on craft, occasion, inspiration and the women who wear Marie Galvin.</p>"},
