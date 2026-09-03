@@ -1,8 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- * ------------------------------------------------------------
- */
+/* Marie Galvin Millinery header — Horizon configured for a Prestige/Vogue-style overlay */
 {
   "type": "header",
   "name": "t:names.header",
@@ -13,10 +9,10 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "MARIE GALVIN MILLINERY — HANDCRAFTED HEADWEAR",
+            "text": "SPECIAL OFFER! FREE DELIVERY WORLDWIDE",
             "link": "",
             "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
+            "font_size": "0.6875rem",
             "weight": "",
             "letter_spacing": "normal",
             "case": "uppercase"
@@ -28,11 +24,11 @@
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,
-        "section_width": "page-width",
-        "divider_width": 1,
-        "padding-block-start": 10,
-        "padding-block-end": 10,
-        "divider_color": "{{ settings.color_palette.color3 }}"
+        "section_width": "full-width",
+        "divider_width": 0,
+        "padding-block-start": 9,
+        "padding-block-end": 9,
+        "divider_color": "#00000000"
       }
     },
     "header_section": {
@@ -60,7 +56,7 @@
             "navigation_bar": false,
             "drawer_accordion": false,
             "drawer_accordion_expand_first": false,
-            "drawer_dividers": true
+            "drawer_dividers": false
           },
           "blocks": {}
         }
@@ -68,24 +64,24 @@
       "settings": {
         "logo_position": "center",
         "menu_position": "left",
-        "menu_row": "bottom",
+        "menu_row": "top",
         "show_search": true,
         "search_position": "right",
-        "search_row": "bottom",
-        "show_country": false,
+        "search_row": "top",
+        "show_country": true,
         "country_selector_style": false,
         "show_language": false,
-        "localization_font": "heading",
-        "localization_font_size": "0.875rem",
+        "localization_font": "body",
+        "localization_font_size": "0.75rem",
         "localization_position": "right",
         "localization_row": "top",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "section_height": "standard",
         "enable_sticky_header": "always",
-        "divider_width": 1,
+        "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
-        "enable_transparent_header_home": false,
+        "enable_transparent_header_home": true,
         "enable_transparent_header_product": false,
         "enable_transparent_header_collection": false
       }
