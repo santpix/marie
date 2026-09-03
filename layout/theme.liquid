@@ -20,6 +20,7 @@
     {%- render 'color-palette' -%}
     {{ 'marie-editorial.css' | asset_url | stylesheet_tag }}
     {{ 'marie-vogue.css' | asset_url | stylesheet_tag }}
+    {{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}
 
     {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}
     {{ content_for_header }}
