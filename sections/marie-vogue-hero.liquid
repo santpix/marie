@@ -1,0 +1,53 @@
+<section class="marie-vogue-hero" data-marie-hero>
+  <div class="marie-vogue-hero__slides" aria-hidden="true">
+    <div class="marie-vogue-hero__slide is-active" style="background-image:url('{{ 'marie-hero-01.jpg' | asset_url }}')"></div>
+    <div class="marie-vogue-hero__slide" style="background-image:url('{{ 'marie-hero-02.jpg' | asset_url }}')"></div>
+    <div class="marie-vogue-hero__slide" style="background-image:url('{{ 'marie-hero-03.jpg' | asset_url }}')"></div>
+  </div>
+  <div class="marie-vogue-hero__shade"></div>
+  <div class="marie-vogue-hero__content">
+    {% if section.settings.eyebrow != blank %}<p>{{ section.settings.eyebrow }}</p>{% endif %}
+    {% if section.settings.heading != blank %}<h1>{{ section.settings.heading }}</h1>{% endif %}
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="marie-vogue-hero__button">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+  <div class="marie-vogue-hero__dots" aria-label="Hero slides">
+    <button class="is-active" aria-label="Slide 1" data-index="0"></button>
+    <button aria-label="Slide 2" data-index="1"></button>
+    <button aria-label="Slide 3" data-index="2"></button>
+  </div>
+</section>
+
+<script>
+(() => {
+  const root = document.querySelector('[data-marie-hero]');
+  if (!root || root.dataset.ready) return;
+  root.dataset.ready = 'true';
+  const slides = [...root.querySelectorAll('.marie-vogue-hero__slide')];
+  const dots = [...root.querySelectorAll('.marie-vogue-hero__dots button')];
+  let index = 0;
+  const show = (next) => {
+    index = next % slides.length;
+    slides.forEach((el, i) => el.classList.toggle('is-active', i === index));
+    dots.forEach((el, i) => el.classList.toggle('is-active', i === index));
+  };
+  dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => show(index + 1), 6500);
+})();
+</script>
+
+{% schema %}
+{
+  "name":"Marie Vogue hero",
+  "tag":"section",
+  "class":"marie-vogue-hero-section",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"NEW IN"},
+    {"type":"text","id":"heading","label":"Heading","default":"THE ART OF THE HAT"},
+    {"type":"text","id":"button_label","label":"Button label","default":"SHOP THE COLLECTION"},
+    {"type":"url","id":"button_link","label":"Button link"}
+  ],
+  "presets":[{"name":"Marie Vogue hero"}]
+}
+{% endschema %}
