@@ -39,3 +39,5 @@ jobs:
             git commit -m "Import official Shopify Horizon theme"
             git push origin HEAD:main
           fi
+
+# Trigger import
