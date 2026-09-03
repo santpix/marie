@@ -1,0 +1,41 @@
+name: Import Shopify Horizon
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-horizon.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-horizon:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Marie repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone official Shopify Horizon
+        run: git clone --depth 1 https://github.com/Shopify/horizon.git /tmp/horizon
+
+      - name: Copy Horizon theme files
+        run: |
+          rsync -a --delete \
+            --exclude '.git' \
+            --exclude '.github' \
+            /tmp/horizon/ ./
+
+      - name: Commit imported Horizon
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Import official Shopify Horizon theme"
+            git push origin HEAD:main
+          fi
