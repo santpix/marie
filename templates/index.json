@@ -81,7 +81,12 @@
       "type":"marie-editorial-feature",
       "name":"Irish Heritage",
       "settings":{"image_position":"right","eyebrow":"IRISH HERITAGE","heading":"Tradition, shaped for now.","text":"<p>A place for Marie's heritage story, presented with the same quiet editorial rhythm as the collection.</p>","button_label":"Read the story","button_link":""}
+    },
+    "journal_marie": {
+      "type":"marie-journal",
+      "name":"Journal",
+      "settings":{"eyebrow":"FROM THE JOURNAL","heading":"Notes from the atelier.","text":"<p>Stories on craft, occasion, inspiration and the women who wear Marie Galvin.</p>","button_label":"Read the journal","button_link":"","signoff":"Designed with intention. Made to be remembered."}
     }
   },
-  "order":["hero_marie","product_list_marie","feature_editorial","edit_grid","feature_heritage"]
+  "order":["hero_marie","product_list_marie","feature_editorial","edit_grid","feature_heritage","journal_marie"]
 }
