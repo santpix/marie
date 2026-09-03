@@ -1,0 +1,5 @@
+<article class="mvx-card">
+  <a href="{{ product.url }}" class="mvx-card__media">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">{% endif %}</a>
+  <div class="mvx-card__meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div>
+  {% if product.available %}<form method="post" action="{{ routes.cart_add_url }}"><input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"><button type="submit">ADD TO CART</button></form>{% else %}<span class="mvx-sold">SOLD OUT</span>{% endif %}
+</article>
