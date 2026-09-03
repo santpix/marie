@@ -1,0 +1,40 @@
+<section class="marie-journal">
+  <div class="marie-journal__inner">
+    <div class="marie-journal__intro">
+      {% if section.settings.eyebrow != blank %}<p class="marie-kicker">{{ section.settings.eyebrow }}</p>{% endif %}
+      {% if section.settings.heading != blank %}<h2>{{ section.settings.heading }}</h2>{% endif %}
+      {% if section.settings.text != blank %}<div class="marie-journal__text rte">{{ section.settings.text }}</div>{% endif %}
+      {% if section.settings.button_label != blank %}<a class="marie-text-link" href="{{ section.settings.button_link | default: routes.root_url }}">{{ section.settings.button_label }}</a>{% endif %}
+    </div>
+
+    <div class="marie-journal__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 2200 | image_tag: loading: 'lazy', widths: '750,1100,1500,2200', sizes: '(min-width: 990px) 58vw, 100vw', class: 'marie-journal__image' }}
+      {% else %}
+        <div class="marie-journal__placeholder"></div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="marie-signoff">
+    <p>{{ section.settings.signoff }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Marie journal",
+  "tag": "section",
+  "class": "marie-section",
+  "settings": [
+    {"type":"image_picker","id":"image","label":"Image"},
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"FROM THE JOURNAL"},
+    {"type":"text","id":"heading","label":"Heading","default":"Notes from the atelier."},
+    {"type":"richtext","id":"text","label":"Text","default":"<p>Stories on craft, occasion, inspiration and the women who wear Marie Galvin.</p>"},
+    {"type":"text","id":"button_label","label":"Link label","default":"Read the journal"},
+    {"type":"url","id":"button_link","label":"Link"},
+    {"type":"text","id":"signoff","label":"Footnote","default":"Designed with intention. Made to be remembered."}
+  ],
+  "presets": [{"name":"Marie journal"}]
+}
+{% endschema %}
