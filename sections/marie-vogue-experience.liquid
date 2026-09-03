@@ -1,0 +1,50 @@
+{% assign products_all = collections.all.products %}
+<section class="mvx" data-mvx>
+  <div class="mvx-hero" data-hero>
+    <div class="mvx-hero__slide is-active" style="background-image:url('{{ 'marie-hero-01.jpg' | asset_url }}')"></div>
+    <div class="mvx-hero__slide" style="background-image:url('{{ 'marie-hero-02.jpg' | asset_url }}')"></div>
+    <div class="mvx-hero__slide" style="background-image:url('{{ 'marie-hero-03.jpg' | asset_url }}')"></div>
+    <div class="mvx-overlay"></div>
+    <div class="mvx-hero__copy"><span>NEW IN</span><h1>DISCOVER MARIE GALVIN</h1><a href="{{ routes.all_products_collection_url }}">VIEW COLLECTION</a></div>
+    <div class="mvx-dots"><button class="is-active" data-i="0"></button><button data-i="1"></button><button data-i="2"></button></div>
+  </div>
+
+  <section class="mvx-products" data-tabs>
+    <div class="mvx-section-head"><p>FEATURED COLLECTION</p><div class="mvx-tabs"><button class="is-active" data-tab="one">NEW STYLES</button><button data-tab="two">SIGNATURE</button></div></div>
+    <div class="mvx-product-panel is-active" data-panel="one"><div class="mvx-product-track">
+      {% for product in products_all limit: 6 %}{% render 'marie-vogue-card', product: product %}{% endfor %}
+    </div><a class="mvx-yellow" href="{{ routes.all_products_collection_url }}">VIEW ALL</a></div>
+    <div class="mvx-product-panel" data-panel="two"><div class="mvx-product-track">
+      {% for product in products_all offset: 6 limit: 6 %}{% render 'marie-vogue-card', product: product %}{% endfor %}
+    </div><a class="mvx-yellow" href="{{ routes.all_products_collection_url }}">VIEW ALL</a></div>
+  </section>
+
+  <a class="mvx-marquee" href="{{ routes.all_products_collection_url }}"><span>MARIE GALVIN MILLINERY</span><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}" alt=""></a>
+  <a class="mvx-marquee mvx-marquee--reverse" href="{{ routes.all_products_collection_url }}"><img src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}" alt=""><span>SHOP THE OCCASION EDIT</span></a>
+
+  <section class="mvx-categories"><a href="{{ routes.all_products_collection_url }}"><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}"><span>WEDDINGS</span><b>VIEW PRODUCTS</b></a><a href="{{ routes.all_products_collection_url }}"><img src="{{ 'marie-blog-autumn.jpg' | asset_url }}"><span>RACE DAY</span><b>VIEW PRODUCTS</b></a><a href="{{ routes.all_products_collection_url }}"><img src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}"><span>READY TO WEAR</span><b>VIEW PRODUCTS</b></a><a href="{{ routes.all_products_collection_url }}"><img src="{{ 'marie-lounging.jpg' | asset_url }}"><span>BESPOKE</span><b>VIEW PRODUCTS</b></a></section>
+
+  <section class="mvx-products mvx-products--second"><div class="mvx-section-head"><div><p>THE OCCASION EDIT</p><h2>YOUR SIGNATURE LOOK</h2></div></div><div class="mvx-product-track">{% for product in products_all limit: 8 %}{% render 'marie-vogue-card', product: product %}{% endfor %}</div><a class="mvx-yellow" href="{{ routes.all_products_collection_url }}">VIEW ALL HATS</a></section>
+
+  <section class="mvx-before"><div class="mvx-before__copy"><p>FROM SKETCH</p><h2>TO STATEMENT</h2></div><div class="mvx-before__images"><figure><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}"><figcaption>Inspiration</figcaption></figure><figure><img src="{{ 'marie-lounging.jpg' | asset_url }}"><figcaption>Finished look</figcaption></figure></div></section>
+
+  <section class="mvx-promo" style="background-image:url('{{ 'marie-hero-03.jpg' | asset_url }}')"><div class="mvx-overlay"></div><div class="mvx-promo__copy"><span>SPECIAL OCCASIONS</span><h2>MADE TO BE REMEMBERED</h2><p>Statement millinery for weddings, race days and the moments that call for something extraordinary.</p><a href="{{ routes.all_products_collection_url }}">SHOP NOW</a></div><div class="mvx-count"><b>00</b><span>DAY</span><i>:</i><b>00</b><span>HOURS</span><i>:</i><b>00</b><span>MIN</span><i>:</i><b>00</b><span>SEC</span></div></section>
+
+  <section class="mvx-split"><div class="mvx-split__copy"><p>THE ATELIER</p><h2>MADE BY HAND.<br>WORN WITH INTENTION.</h2><span>Marie Galvin creates sculptural millinery with a fashion-editorial point of view.</span><a class="mvx-yellow" href="/pages/contact">DISCOVER THE ATELIER</a></div><div class="mvx-split__media"><img class="one" src="{{ 'marie-blog-autumn.jpg' | asset_url }}"><img class="two" src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}"></div></section>
+
+  <section class="mvx-overlap" style="background-image:url('{{ 'marie-hero-02.jpg' | asset_url }}')"><img src="{{ 'marie-lounging.jpg' | asset_url }}" alt=""><div class="mvx-overlap__copy"><p>IRISH HERITAGE</p><h2>MODERN MILLINERY</h2><span>Tradition, craftsmanship and contemporary silhouette come together in every Marie Galvin piece.</span></div></section>
+
+  {% assign featured = products_all.first %}{% if featured %}<section class="mvx-featured"><div class="mvx-featured__gallery">{% if featured.featured_image %}<img src="{{ featured.featured_image | image_url: width: 1800 }}" alt="{{ featured.title | escape }}">{% endif %}</div><div class="mvx-featured__info"><p>MARIE GALVIN MILLINERY</p><h2>{{ featured.title }}</h2><div class="mvx-price">{{ featured.price | money }}</div><div class="mvx-desc">{{ featured.description | strip_html | truncatewords: 38 }}</div><form method="post" action="{{ routes.cart_add_url }}"><input type="hidden" name="id" value="{{ featured.selected_or_first_available_variant.id }}"><button type="submit">ADD TO CART</button></form></div></section>{% endif %}
+
+  <section class="mvx-journal"><div class="mvx-section-head"><div><p>NEWS</p><h2>FROM THE JOURNAL</h2></div></div><div class="mvx-journal-grid"><article><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}"><small>STYLE</small><h3>How to choose a hat for the occasion</h3><a href="/blogs/news">READ MORE</a></article><article><img src="{{ 'marie-blog-autumn.jpg' | asset_url }}"><small>ATELIER</small><h3>Inside the craft of modern millinery</h3><a href="/blogs/news">READ MORE</a></article><article><img src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}"><small>INSPIRATION</small><h3>Statement silhouettes for race day</h3><a href="/blogs/news">READ MORE</a></article></div></section>
+
+  <section class="mvx-social"><p>FOLLOW US</p><h2>@MARIEGALVINMILLINERY</h2><div>{% for i in (1..6) %}<img src="{% cycle 'marie-blog-black-white.jpg','marie-blog-autumn.jpg','marie-blog-yellow-paris.jpg','marie-lounging.jpg','marie-hero-02.jpg','marie-hero-03.jpg' | asset_url %}">{% endfor %}</div></section>
+
+  <div class="mvx-newsletter" data-newsletter><button data-close>×</button><p>JOIN THE WORLD OF<br>MARIE GALVIN</p><span>New collections, atelier stories and occasion inspiration.</span>{% form 'customer' %}<input type="hidden" name="contact[tags]" value="newsletter"><input type="email" name="contact[email]" placeholder="EMAIL ADDRESS" required><button type="submit">JOIN</button>{% endform %}</div>
+</section>
+
+<script>
+(()=>{const r=document.querySelector('[data-mvx]');if(!r||r.dataset.ready)return;r.dataset.ready='1';const s=[...r.querySelectorAll('.mvx-hero__slide')],d=[...r.querySelectorAll('.mvx-dots button')];let n=0;const show=i=>{n=i%s.length;s.forEach((x,j)=>x.classList.toggle('is-active',j===n));d.forEach((x,j)=>x.classList.toggle('is-active',j===n))};d.forEach((x,i)=>x.onclick=()=>show(i));if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>show(n+1),6500);const tabs=[...r.querySelectorAll('[data-tab]')],panels=[...r.querySelectorAll('[data-panel]')];tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.classList.remove('is-active'));panels.forEach(x=>x.classList.remove('is-active'));t.classList.add('is-active');r.querySelector(`[data-panel="${t.dataset.tab}"]`).classList.add('is-active')});const q=r.querySelector('[data-newsletter]');if(q){r.querySelector('[data-close]').onclick=()=>q.remove();}})();
+</script>
+
+{% schema %}{"name":"Marie Vogue experience","tag":"section","class":"marie-vogue-experience","settings":[],"presets":[{"name":"Marie Vogue experience"}]}{% endschema %}
