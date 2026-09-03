@@ -100,7 +100,8 @@ header-component, .header {
 }
 .marie-feature__copy h2,
 .marie-grid-head h2,
-.marie-grid__caption h3 {
+.marie-grid__caption h3,
+.marie-journal h2 {
   margin: 0;
   font-family: var(--marie-serif);
   font-weight: 400;
@@ -131,6 +132,18 @@ header-component, .header {
 .marie-grid__caption h3 { font-size: clamp(24px, 2.3vw, 36px); }
 .marie-grid__caption span { font-family: var(--marie-sans); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
 
+.marie-journal { background: #171717; color: #f8f6f1; }
+.marie-journal__inner { display: grid; grid-template-columns: .72fr 1.28fr; min-height: 680px; }
+.marie-journal__intro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(54px, 7vw, 118px); }
+.marie-journal__intro h2 { font-size: clamp(50px, 5.5vw, 90px); line-height: .94; max-width: 8ch; }
+.marie-journal__text { max-width: 34ch; margin-top: 28px; font-size: 14px; line-height: 1.8; color: rgba(248,246,241,.8); }
+.marie-journal__media { overflow: hidden; min-height: 680px; background: #242424; }
+.marie-journal__image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s cubic-bezier(.2,.65,.3,1); }
+.marie-journal:hover .marie-journal__image { transform: scale(1.012); }
+.marie-journal__placeholder { width: 100%; height: 100%; background: linear-gradient(135deg,#292929,#181818); }
+.marie-signoff { border-top: 1px solid rgba(255,255,255,.18); padding: 22px clamp(20px,4vw,72px); text-align: center; }
+.marie-signoff p { margin: 0; font-family: var(--marie-sans); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+
 footer, .footer { border-top: 1px solid var(--marie-rule); font-family: var(--marie-sans); }
 footer h2, footer h3, .footer h2, .footer h3 { font-family: var(--marie-serif); font-weight: 400; }
 footer input, footer button { border-radius: 0 !important; }
@@ -146,6 +159,9 @@ footer input, footer button { border-radius: 0 !important; }
   .marie-feature__media, .marie-feature__placeholder { min-height: 72vw; }
   .marie-feature__copy { padding: 56px 24px 72px; }
   .marie-feature__copy h2 { max-width: 10ch; }
+  .marie-journal__inner { grid-template-columns: 1fr; min-height: 0; }
+  .marie-journal__media { min-height: 72vw; }
+  .marie-journal__intro { padding: 60px 24px 72px; }
 }
 
 @media (max-width: 749px) {
