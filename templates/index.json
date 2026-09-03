@@ -1,92 +1,271 @@
-/*
- * Marie Galvin Millinery homepage — editorial foundation on Horizon.
- * Media is intentionally selected in Shopify Theme Editor so Marie's supplied photography remains source-of-truth.
- */
 {
   "sections": {
     "hero_marie": {
-      "type": "hero",
-      "blocks": {
-        "eyebrow": {
-          "type": "text",
-          "name": "Editorial eyebrow",
-          "settings": {
-            "text": "<p>MARIE GALVIN MILLINERY</p>",
-            "width": "fit-content","max_width": "normal","alignment": "center","type_preset": "paragraph","font": "var(--font-body--family)","font_size": "0.75rem","line_height": "normal","letter_spacing": "normal","case": "uppercase","wrap": "pretty","text_color": "{{ settings.color_palette.background }}","background": false,"background_color": "#00000000","corner_radius": 0,"padding-block-start": 0,"padding-block-end": 0,"padding-inline-start": 0,"padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "headline": {
-          "type": "text",
-          "name": "Hero title",
-          "settings": {
-            "text": "<h1>Wear the extraordinary.</h1>",
-            "width": "fit-content","max_width": "normal","alignment": "center","type_preset": "h1","font": "var(--font-heading--family)","font_size": "","line_height": "normal","letter_spacing": "normal","case": "none","wrap": "balance","text_color": "{{ settings.color_palette.background }}","background": false,"background_color": "#00000000","corner_radius": 0,"padding-block-start": 0,"padding-block-end": 0,"padding-inline-start": 0,"padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_shop": {
-          "type": "button","name": "Shop",
-          "settings": {"label":"Discover the collection","link":"shopify://collections/all","open_in_new_tab":false,"style_class":"button-custom","custom_button_background":"rgba(0,0,0,0)","custom_button_text":"{{ settings.color_palette.background }}","custom_button_border":"{{ settings.color_palette.background }}","width":"fit-content","custom_width":100,"width_mobile":"fit-content","custom_width_mobile":100},
-          "blocks": {}
-        }
-      },
-      "block_order": ["eyebrow","headline","button_shop"],
-      "name": "Marie Editorial Hero",
-      "settings": {"media_type_1":"image","media_type_2":"image","link":"","open_in_new_tab":false,"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"center","vertical_alignment":"flex-end","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"flex-end","gap":18,"section_width":"full-width","section_height":"large","section_height_custom":80,"toggle_overlay":true,"overlay_color":"#00000035","overlay_style":"solid","gradient_direction":"to bottom","blurred_reflection":false,"reflection_opacity":75,"padding-block-start":120,"padding-block-end":64}
+      "type": "marie-vogue-hero",
+      "name": "Marie Vogue Hero",
+      "settings": {
+        "eyebrow": "NEW IN",
+        "heading": "THE ART OF THE HAT",
+        "button_label": "SHOP THE COLLECTION",
+        "button_link": "shopify://collections/all"
+      }
     },
     "product_list_marie": {
       "type": "product-list",
       "blocks": {
         "static-header": {
-          "type": "_product-list-content","name": "t:names.header","static": true,
-          "settings": {"content_direction":"row","vertical_on_mobile":false,"horizontal_alignment":"space-between","vertical_alignment":"flex-end","align_baseline":true,"horizontal_alignment_flex_direction_column":"flex-start","vertical_alignment_flex_direction_column":"center","gap":12,"width":"fill","custom_width":100,"width_mobile":"fill","custom_width_mobile":100,"height":"fit","custom_height":100,"background_media":"none","video_position":"cover","background_image_position":"cover","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},
-          "blocks": {
-            "title": {"type":"_product-list-text","name":"New styles","settings":{"text":"<h2>Our New Styles</h2>","width":"fit-content","max_width":"normal","alignment":"left","type_preset":"h2","font":"var(--font-heading--family)","font_size":"","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","background":false,"background_color":"#00000000","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},
-            "viewall": {"type":"_product-list-button","name":"View collection","settings":{"label":"View all","open_in_new_tab":false,"style_class":"button-unstyled","width":"fit-content","custom_width":100,"width_mobile":"fit-content","custom_width_mobile":100},"blocks":{}}
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "space-between",
+            "vertical_alignment": "flex-end",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
-          "block_order":["title","viewall"]
+          "blocks": {
+            "title": {
+              "type": "_product-list-text",
+              "name": "New styles",
+              "settings": {
+                "text": "<h2>Our New Styles</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-heading--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000000",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "viewall": {
+              "type": "_product-list-button",
+              "name": "View collection",
+              "settings": {
+                "label": "View all",
+                "open_in_new_tab": false,
+                "style_class": "button-unstyled",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["title", "viewall"]
         },
         "static-product-card": {
-          "type":"_product-card","name":"t:names.product_card","static":true,
-          "settings":{"product_card_gap":6,"border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},
-          "blocks":{
-            "gallery":{"type":"_product-card-gallery","name":"t:names.product_card_media","settings":{"image_ratio":"portrait","border":"none","border_width":1,"border_opacity":100,"border_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},
-            "product_title":{"type":"product-title","name":"t:names.product_title","settings":{"width":"100%","max_width":"normal","alignment":"left","type_preset":"h6","font":"var(--font-heading--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","background":false,"background_color":"#00000000","corner_radius":0,"padding-block-start":8,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},
-            "price":{"type":"price","name":"t:names.product_price","settings":{"show_sale_price_first":true,"show_installments":false,"show_tax_info":false,"type_preset":"paragraph","width":"100%","alignment":"left","font":"var(--font-body--family)","font_size":"0.75rem","line_height":"normal","letter_spacing":"normal","case":"none","padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}}
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 6,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
-          "block_order":["gallery","product_title","price"]
+          "blocks": {
+            "gallery": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h6",
+                "font": "var(--font-heading--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000000",
+                "corner_radius": 0,
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "paragraph",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "0.75rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["gallery", "product_title", "price"]
         }
       },
-      "name":"Our New Styles",
-      "settings":{"collection":"all","layout_type":"grid","carousel_on_mobile":false,"max_products":8,"columns":4,"mobile_columns":"2","mobile_card_size":"60cqw","columns_gap":16,"rows_gap":36,"icons_style":"arrow","icons_shape":"none","section_width":"page-width","horizontal_alignment":"flex-start","gap":32,"padding-block-start":80,"padding-block-end":96}
+      "name": "Our New Styles",
+      "settings": {
+        "collection": "all",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 8,
+        "columns": 4,
+        "mobile_columns": "2",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 16,
+        "rows_gap": 36,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 32,
+        "padding-block-start": 80,
+        "padding-block-end": 96
+      }
     },
     "feature_editorial": {
-      "type":"marie-editorial-feature",
-      "name":"Editorial Story",
-      "settings":{"image_position":"left","eyebrow":"THE ATELIER","heading":"A statement in every silhouette.","text":"<p>Explore the artistry, proportion and finish behind Marie Galvin millinery.</p>","button_label":"Discover the atelier","button_link":""}
+      "type": "marie-editorial-feature",
+      "name": "Editorial Story",
+      "settings": {
+        "fallback_asset": "marie-lounging.jpg",
+        "image_position": "left",
+        "eyebrow": "THE ATELIER",
+        "heading": "A statement in every silhouette.",
+        "text": "<p>Explore the artistry, proportion and finish behind Marie Galvin millinery.</p>",
+        "button_label": "Discover the atelier",
+        "button_link": ""
+      }
     },
     "edit_grid": {
-      "type":"marie-editorial-grid",
-      "name":"The Edit",
+      "type": "marie-editorial-grid",
+      "name": "The Edit",
       "blocks": {
-        "tile_1":{"type":"tile","settings":{"title":"Occasion","label":"Explore","link":""}},
-        "tile_2":{"type":"tile","settings":{"title":"Race Day","label":"Explore","link":""}},
-        "tile_3":{"type":"tile","settings":{"title":"Bespoke","label":"Explore","link":""}}
+        "tile_1": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "marie-blog-black-white.jpg",
+            "title": "Occasion",
+            "label": "Explore",
+            "link": ""
+          }
+        },
+        "tile_2": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "marie-blog-autumn.jpg",
+            "title": "Race Day",
+            "label": "Explore",
+            "link": ""
+          }
+        },
+        "tile_3": {
+          "type": "tile",
+          "settings": {
+            "fallback_asset": "marie-blog-yellow-paris.jpg",
+            "title": "Bespoke",
+            "label": "Explore",
+            "link": ""
+          }
+        }
       },
-      "block_order":["tile_1","tile_2","tile_3"],
-      "settings":{"eyebrow":"CURATED","heading":"The Edit"}
+      "block_order": ["tile_1", "tile_2", "tile_3"],
+      "settings": {
+        "eyebrow": "CURATED",
+        "heading": "The Edit"
+      }
     },
     "feature_heritage": {
-      "type":"marie-editorial-feature",
-      "name":"Irish Heritage",
-      "settings":{"image_position":"right","eyebrow":"IRISH HERITAGE","heading":"Tradition, shaped for now.","text":"<p>A place for Marie's heritage story, presented with the same quiet editorial rhythm as the collection.</p>","button_label":"Read the story","button_link":""}
+      "type": "marie-editorial-feature",
+      "name": "Irish Heritage",
+      "settings": {
+        "fallback_asset": "marie-hero-03.jpg",
+        "image_position": "right",
+        "eyebrow": "IRISH HERITAGE",
+        "heading": "Tradition, shaped for now.",
+        "text": "<p>Marie Galvin's Irish heritage informs a point of view rooted in craft, character and occasion.</p>",
+        "button_label": "Read the story",
+        "button_link": ""
+      }
     },
     "journal_marie": {
-      "type":"marie-journal",
-      "name":"Journal",
-      "settings":{"eyebrow":"FROM THE JOURNAL","heading":"Notes from the atelier.","text":"<p>Stories on craft, occasion, inspiration and the women who wear Marie Galvin.</p>","button_label":"Read the journal","button_link":"","signoff":"Designed with intention. Made to be remembered."}
+      "type": "marie-journal",
+      "name": "Journal",
+      "settings": {
+        "fallback_asset": "marie-blog-black-white.jpg",
+        "eyebrow": "FROM THE JOURNAL",
+        "heading": "Notes from the atelier.",
+        "text": "<p>Stories on craft, occasion, inspiration and the women who wear Marie Galvin.</p>",
+        "button_label": "Read the journal",
+        "button_link": "",
+        "signoff": "Designed with intention. Made to be remembered."
+      }
     }
   },
-  "order":["hero_marie","product_list_marie","feature_editorial","edit_grid","feature_heritage","journal_marie"]
+  "order": ["hero_marie", "product_list_marie", "feature_editorial", "edit_grid", "feature_heritage", "journal_marie"]
 }
