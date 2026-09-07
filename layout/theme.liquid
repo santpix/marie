@@ -6,17 +6,21 @@
 {{ 'marie-editorial.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}
 {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}{{ content_for_header }}
 <style id="marie-native-header-force">
-#header-group{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;z-index:2147483000!important;top:0!important;left:0!important;width:100%!important;pointer-events:auto!important;height:auto!important;overflow:visible!important}
+#header-group{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;z-index:2147483000!important;top:0!important;left:0!important;width:100%!important;height:0!important;overflow:visible!important;pointer-events:auto!important}
 #header-group>.shopify-section{display:block!important;visibility:visible!important;opacity:1!important}
-#header-group .header-announcements,#header-group .announcement-bar,#header-group [class*="announcement"]{visibility:visible!important;opacity:1!important}
-#header-group>.shopify-section:first-child{display:block!important;background:#f0d55c!important;color:#111!important;position:relative!important;z-index:4!important}
-#header-group>.shopify-section:first-child *{color:#111!important}
-#header-group .header-section,#header-group #header-component,#header-group #header-component .header{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:3!important}
-#header-group #header-component[transparent],#header-group #header-component[transparent] .header,#header-group .header-section:has(#header-component[transparent]){background:transparent!important;box-shadow:none!important;border:0!important;backdrop-filter:none!important}
-#header-group #header-component[transparent] *{color:#fff!important}
-#header-group #header-component[transparent] svg{fill:currentColor!important;stroke:currentColor!important}
-#MainContent{position:relative!important;z-index:1!important}
-@media(min-width:990px){#header-group #header-component{min-height:82px!important}#header-group #header-component .header{min-height:82px!important;padding-inline:clamp(28px,4vw,60px)!important}#header-group #header-component .header__row--top{min-height:82px!important}#header-group #header-component .header__logo,#header-group #header-component .header-logo,#header-group #header-component .header__heading-link{max-width:240px!important;margin-inline:auto!important}}
+#header-group>.shopify-section:first-child{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:34px!important;z-index:5!important;background:#f0d55c!important;color:#111!important;overflow:hidden!important}
+#header-group>.shopify-section:first-child *{color:#111!important;background:#f0d55c!important}
+#header-group>.shopify-section:nth-child(2),#header-group .header-section{position:absolute!important;top:34px!important;left:0!important;width:100%!important;z-index:4!important;background:transparent!important;box-shadow:none!important;border:0!important}
+#header-group #header-component,#header-group #header-component .header,#header-group #header-component .header__row,#header-group #header-component [class*="header__row"]{display:block!important;visibility:visible!important;opacity:1!important;background:transparent!important;box-shadow:none!important;border:0!important;backdrop-filter:none!important}
+#header-group #header-component{min-height:82px!important;color:#fff!important}
+#header-group #header-component .header{min-height:82px!important;padding-inline:clamp(28px,4vw,60px)!important;color:#fff!important}
+#header-group #header-component *{color:#fff!important}
+#header-group #header-component svg{fill:currentColor!important;stroke:currentColor!important}
+#header-group .header-logo,#header-group .header__logo,#header-group .header__heading-link{display:block!important;position:relative!important;width:240px!important;max-width:28vw!important;height:54px!important;margin-inline:auto!important;background:url('{{ '00_logo.jpg' | asset_url }}') center/contain no-repeat!important;overflow:hidden!important;border:0!important}
+#header-group .header-logo img,#header-group .header__logo img,#header-group .header__heading-link img,#header-group .header-logo svg,#header-group .header__logo svg,#header-group .header__heading-link svg{opacity:0!important}
+#header-group [class*="header-actions"],#header-group [class*="header__actions"]{visibility:visible!important;opacity:1!important}
+#MainContent{position:relative!important;z-index:1!important;margin-top:0!important;padding-top:0!important}
+@media(max-width:749px){#header-group>.shopify-section:first-child{height:32px!important}#header-group>.shopify-section:nth-child(2),#header-group .header-section{top:32px!important}#header-group #header-component,#header-group #header-component .header{min-height:68px!important}#header-group .header-logo,#header-group .header__logo,#header-group .header__heading-link{width:170px!important;max-width:46vw!important;height:42px!important}}
 </style>
 </head>
 <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }} template-{{ template.name | handle }}">
