@@ -6,27 +6,186 @@
 {{ 'marie-editorial.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}{{ 'prestige-vogue-global.css' | asset_url | stylesheet_tag }}{{ 'prestige-vogue-reference.css' | asset_url | stylesheet_tag }}
 {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}{{ content_for_header }}
 <style id="marie-native-header-force">
-.template-index #header-group{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:12000!important;width:100%!important;margin:0!important;padding:0!important;background:#fff!important;pointer-events:auto!important;overflow:visible!important}
-.template-index #header-group>.shopify-section{visibility:visible!important;opacity:1!important;margin:0!important;padding:0!important}
-.template-index #header-group>.shopify-section:first-child{min-height:34px!important;margin:0!important;padding:0!important;background:#f0d55c!important;color:#111!important}
-.template-index #header-group>.shopify-section:first-child *{color:#111!important}
-.template-index #header-group .header-section{min-height:82px!important;margin:0!important;padding:0!important;background:#fff!important;box-shadow:0 1px 0 rgba(17,17,17,.10)!important;border:0!important}
-.template-index #header-component{min-height:82px!important;margin:0!important;background:#fff!important;color:#111!important;box-shadow:none!important;border:0!important}
-.template-index #header-component .header,.template-index #header-component .header__row,.template-index #header-component .header__row--top,.template-index #header-component .header__row--bottom{min-height:82px!important;margin:0!important;background:#fff!important;box-shadow:none!important;border:0!important}
-.template-index #header-component *{color:#111!important}
+/* HOME HEADER — match Prestige architecture: thin announcement + transparent nav overlaying hero */
+.template-index #header-group{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:absolute!important;
+  inset:0 0 auto 0!important;
+  z-index:12000!important;
+  width:100%!important;
+  height:88px!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  pointer-events:auto!important;
+  overflow:visible!important;
+}
+.template-index #header-group>.shopify-section{
+  visibility:visible!important;
+  opacity:1!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+/* Announcement: Prestige-like 22px strip */
+.template-index #header-group>.shopify-section:first-child{
+  position:absolute!important;
+  top:0!important;left:0!important;right:0!important;
+  height:22px!important;
+  min-height:22px!important;
+  overflow:hidden!important;
+  background:#f0d55c!important;
+  color:#111!important;
+  z-index:3!important;
+}
+.template-index #header-group>.shopify-section:first-child *{
+  color:#111!important;
+  font-size:7px!important;
+  line-height:22px!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+/* Main nav: transparent and ON TOP of hero */
+.template-index #header-group .header-section{
+  position:absolute!important;
+  top:22px!important;left:0!important;right:0!important;
+  height:66px!important;
+  min-height:66px!important;
+  margin:0!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+  z-index:2!important;
+}
+.template-index #header-component,
+.template-index #header-component .header,
+.template-index #header-component .header__row,
+.template-index #header-component .header__row--top,
+.template-index #header-component .header__row--bottom{
+  height:66px!important;
+  min-height:66px!important;
+  margin:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.template-index #header-component .header{
+  padding-inline:24px!important;
+  position:relative!important;
+}
+.template-index #header-component *{color:#fff!important}
 .template-index #header-component svg{stroke:currentColor!important}
-.template-index #header-component .header-menu,.template-index #header-component nav.header-menu,.template-index #header-component overflow-list{visibility:visible!important;opacity:1!important;max-width:none!important}
-.template-index #header-component header-actions,.template-index #header-component [class*="header-actions"],.template-index #header-component [class*="header__actions"]{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}
-.template-index #header-component .header-actions__action,.template-index #header-component .search-action,.template-index #header-component .header__icon{display:flex!important;visibility:visible!important;opacity:1!important;align-items:center!important;justify-content:center!important;min-width:42px!important;min-height:42px!important}
-.template-index #header-component .header-actions__action svg,.template-index #header-component .search-action svg,.template-index #header-component .header__icon svg{display:block!important;visibility:visible!important;opacity:1!important;width:20px!important;height:20px!important}
-/* Use one logo source only. Shopify has no logo assigned in settings, so the theme fallback text was appearing on top of the custom image. */
-.template-index #header-component .header-logo{display:flex!important;visibility:visible!important;opacity:1!important;width:240px!important;max-width:28vw!important;height:54px!important;justify-content:center!important;align-items:center!important;background:url('{{ '00_logo.jpg' | asset_url }}') center/contain no-repeat!important;overflow:hidden!important;font-size:0!important;color:transparent!important;text-indent:-9999px!important}
-.template-index #header-component .header-logo>span,.template-index #header-component .header-logo img,.template-index #header-component .header-logo svg{visibility:hidden!important;opacity:0!important}
-.template-index #MainContent{position:relative!important;z-index:1!important;margin:0!important;padding:0!important}
-.template-index .mvx-announcement,.template-index .mvx-home-header{display:none!important}
-@media(min-width:750px){.template-index #header-component .header__drawer,.template-index #header-component menu-drawer,.template-index #header-component .header__icon--menu{display:none!important}.template-index #header-component .header-menu{display:flex!important;visibility:visible!important;opacity:1!important}}
-@media(min-width:990px){.template-index #header-component .header{padding-inline:clamp(28px,4vw,60px)!important}}
-@media(max-width:749px){.template-index #header-group>.shopify-section:first-child{min-height:32px!important}.template-index #header-group .header-section,.template-index #header-component,.template-index #header-component .header,.template-index #header-component .header__row,.template-index #header-component .header__row--top,.template-index #header-component .header__row--bottom{min-height:68px!important}.template-index #header-component .header{padding-inline:14px!important}.template-index #header-component .header-logo{width:150px!important;max-width:42vw!important;height:42px!important}.template-index #header-component .header__drawer,.template-index #header-component menu-drawer,.template-index #header-component .header__icon--menu{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}.template-index #header-component header-actions{display:flex!important;visibility:visible!important;opacity:1!important}.template-index #header-component .header-actions__action{display:flex!important;visibility:visible!important;opacity:1!important;min-width:40px!important;min-height:40px!important}}
+/* Prestige layout: hamburger only at left; hide desktop word-menu */
+.template-index #header-component .header-menu,
+.template-index #header-component nav.header-menu,
+.template-index #header-component overflow-list{
+  display:none!important;
+}
+.template-index #header-component .header__drawer,
+.template-index #header-component menu-drawer,
+.template-index #header-component .header__icon--menu{
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+}
+/* Right actions */
+.template-index #header-component header-actions,
+.template-index #header-component [class*="header-actions"],
+.template-index #header-component [class*="header__actions"]{
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  pointer-events:auto!important;
+  gap:2px!important;
+}
+.template-index #header-component .header-actions__action,
+.template-index #header-component .search-action,
+.template-index #header-component .header__icon{
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:30px!important;
+  min-height:30px!important;
+}
+.template-index #header-component .header-actions__action svg,
+.template-index #header-component .search-action svg,
+.template-index #header-component .header__icon svg{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:15px!important;
+  height:15px!important;
+}
+/* One centered Marie logo only */
+.template-index #header-component .header-logo{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  width:176px!important;
+  max-width:28vw!important;
+  height:34px!important;
+  justify-content:center!important;
+  align-items:center!important;
+  background:url('{{ '00_logo.jpg' | asset_url }}') center/contain no-repeat!important;
+  overflow:hidden!important;
+  font-size:0!important;
+  color:transparent!important;
+  text-indent:-9999px!important;
+  z-index:4!important;
+}
+.template-index #header-component .header-logo>span,
+.template-index #header-component .header-logo img,
+.template-index #header-component .header-logo svg{
+  display:none!important;
+  visibility:hidden!important;
+  opacity:0!important;
+}
+/* Hero starts at viewport top beneath overlay — no white strip/gap */
+.template-index #MainContent,
+.template-index .content-for-layout{
+  position:relative!important;
+  z-index:1!important;
+  margin:0!important;
+  padding:0!important;
+}
+.template-index #MainContent>.shopify-section:first-child,
+.template-index .mvx,
+.template-index .mvx-hero{
+  margin-top:0!important;
+  padding-top:0!important;
+}
+.template-index .mvx-announcement,
+.template-index .mvx-home-header{display:none!important}
+
+@media(max-width:749px){
+  .template-index #header-group{height:78px!important}
+  .template-index #header-group>.shopify-section:first-child{height:20px!important;min-height:20px!important}
+  .template-index #header-group>.shopify-section:first-child *{font-size:6px!important;line-height:20px!important}
+  .template-index #header-group .header-section{top:20px!important;height:58px!important;min-height:58px!important}
+  .template-index #header-component,
+  .template-index #header-component .header,
+  .template-index #header-component .header__row,
+  .template-index #header-component .header__row--top,
+  .template-index #header-component .header__row--bottom{height:58px!important;min-height:58px!important}
+  .template-index #header-component .header{padding-inline:14px!important}
+  .template-index #header-component .header-logo{width:138px!important;max-width:42vw!important;height:30px!important}
+  .template-index #header-component .header-actions__action,
+  .template-index #header-component .search-action,
+  .template-index #header-component .header__icon{min-width:28px!important;min-height:28px!important}
+}
 </style>
 </head>
 <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }} template-{{ template.name | handle }}">
