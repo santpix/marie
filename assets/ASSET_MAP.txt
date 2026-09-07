@@ -1,0 +1,28 @@
+MARIE — HOMEPAGE ASSET MAP
+
+00_logo.jpg
+  Brand logo
+
+01_hero_slide_01.jpg
+01_hero_slide_02.jpg
+01_hero_slide_03.jpg
+  Section 1 — Hero Banner
+
+02_new_styles_lilac_halo.jpg
+02_new_styles_pink_ivory_flower.jpg
+02_new_styles_blue_percher.jpg
+  Section 2 — Our New Styles
+
+03_lounging_model_green_sofa.jpg
+  Section 3 — Lounging Model
+
+Section 4 — Irish Heritage
+  No image was present in Marie's Drive folder.
+
+05_blog_black_white_hat.jpg
+05_blog_autumn_fun.jpg
+05_blog_yellow_paris.jpg
+  Section 5 — Blog
+
+06_footer_black_white.jpg
+  Section 6 — Footnote / Footer
