@@ -1,47 +1,116 @@
 {{ 'marie-prestige-vogue.css' | asset_url | stylesheet_tag }}
-{% assign pv_products = collections.all.products %}
+{% assign primary_collection = section.settings.primary_collection | default: collections.all %}
+{% assign secondary_collection = section.settings.secondary_collection | default: collections.all %}
 <section class="pv">
-  <div class="pv-announcement">COMPLIMENTARY SHIPPING — MARIE GALVIN MILLINERY</div>
-  <header class="pv-header">
-    <a href="#" class="pv-menu" aria-label="Menu"><span></span><span></span><span></span></a>
-    <a class="pv-logo" href="{{ routes.root_url }}"><img src="{{ 'marie-logo.jpg' | asset_url }}" alt="{{ shop.name | escape }}"></a>
-    <nav class="pv-tools"><a href="{{ routes.search_url }}">Search</a>{% if shop.customer_accounts_enabled %}<a href="{{ routes.account_url }}">Account</a>{% endif %}<a href="{{ routes.cart_url }}">Bag {{ cart.item_count }}</a></nav>
-  </header>
-
   <section class="pv-hero">
-    <img src="{{ 'marie-hero-01.jpg' | asset_url }}" alt="Marie Galvin Millinery">
-    <div class="pv-hero-copy"><div class="pv-kicker">NEW COLLECTION</div><h1>MARIE GALVIN MILLINERY</h1><a class="pv-btn" href="{{ routes.all_products_collection_url }}">DISCOVER PRODUCTS</a></div>
+    {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: loading: 'eager', alt: section.settings.hero_title }}
+    {% else %}
+      <img src="{{ 'marie-hero-01.jpg' | asset_url }}" alt="{{ section.settings.hero_title | escape }}">
+    {% endif %}
+    <div class="pv-hero-copy">
+      {% if section.settings.hero_kicker != blank %}<div class="pv-kicker">{{ section.settings.hero_kicker }}</div>{% endif %}
+      <h1>{{ section.settings.hero_title }}</h1>
+      {% if section.settings.hero_button_label != blank %}<a class="pv-btn" href="{{ section.settings.hero_button_link | default: routes.all_products_collection_url }}">{{ section.settings.hero_button_label }}</a>{% endif %}
+    </div>
   </section>
 
   <section class="pv-products">
-    <div class="pv-head"><div><div class="pv-kicker">THE LATEST</div><h2>New arrivals</h2></div><a href="{{ routes.all_products_collection_url }}">View all</a></div>
-    <div class="pv-grid">{% for product in pv_products limit: 4 %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
+    <div class="pv-head"><div><div class="pv-kicker">{{ section.settings.primary_kicker }}</div><h2>{{ section.settings.primary_title }}</h2></div>{% if section.settings.primary_link_label != blank %}<a href="{{ primary_collection.url }}">{{ section.settings.primary_link_label }}</a>{% endif %}</div>
+    <div class="pv-grid">{% for product in primary_collection.products limit: section.settings.product_limit %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}{{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: product.title }}{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
   </section>
 
   <section class="pv-editorial">
-    <div class="pv-editorial-media"><img src="{{ 'marie-lounging.jpg' | asset_url }}" alt="Marie Galvin editorial"></div>
-    <div class="pv-editorial-copy"><div class="pv-kicker">THE ATELIER</div><h2>CRAFTED BY HAND.<br>WORN WITH INTENTION.</h2><p>Distinctive millinery shaped by traditional craft, sculptural form and a contemporary point of view.</p><p><a href="/pages/about">DISCOVER MARIE →</a></p></div>
+    <div class="pv-editorial-media">{% if section.settings.editorial_image != blank %}{{ section.settings.editorial_image | image_url: width: 1800 | image_tag: loading: 'lazy', alt: section.settings.editorial_title }}{% else %}<img src="{{ 'marie-lounging.jpg' | asset_url }}" alt="{{ section.settings.editorial_title | escape }}">{% endif %}</div>
+    <div class="pv-editorial-copy"><div class="pv-kicker">{{ section.settings.editorial_kicker }}</div><h2>{{ section.settings.editorial_title }}</h2><div class="rte">{{ section.settings.editorial_text }}</div>{% if section.settings.editorial_link_label != blank %}<p><a href="{{ section.settings.editorial_link }}">{{ section.settings.editorial_link_label }} →</a></p>{% endif %}</div>
   </section>
 
   <section class="pv-categories">
-    <a class="pv-cat" href="/collections/kentucky-derby-hats"><img src="{{ 'marie-blog-autumn.jpg' | asset_url }}" alt=""><span>Race Day</span><small>Shop collection</small></a>
-    <a class="pv-cat" href="/collections/wedding-hats"><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}" alt=""><span>Weddings</span><small>Shop collection</small></a>
-    <a class="pv-cat" href="/collections/ready-to-wear"><img src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}" alt=""><span>Ready to Wear</span><small>Shop collection</small></a>
+    {% for block in section.blocks %}
+      {% if block.type == 'category' %}
+        <a class="pv-cat" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title }}{% endif %}
+          <span>{{ block.settings.title }}</span><small>{{ block.settings.subtitle }}</small>
+        </a>
+      {% endif %}
+    {% endfor %}
   </section>
 
   <section class="pv-products">
-    <div class="pv-head"><div><div class="pv-kicker">SIGNATURE PIECES</div><h2>The occasion edit</h2></div><a href="{{ routes.all_products_collection_url }}">View all</a></div>
-    <div class="pv-grid">{% for product in pv_products offset: 4 limit: 4 %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
+    <div class="pv-head"><div><div class="pv-kicker">{{ section.settings.secondary_kicker }}</div><h2>{{ section.settings.secondary_title }}</h2></div>{% if section.settings.secondary_link_label != blank %}<a href="{{ secondary_collection.url }}">{{ section.settings.secondary_link_label }}</a>{% endif %}</div>
+    <div class="pv-grid">{% for product in secondary_collection.products limit: section.settings.product_limit %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}{{ product.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: product.title }}{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
   </section>
 
   <section class="pv-banner">
-    <img src="{{ 'marie-hero-03.jpg' | asset_url }}" alt="Marie Galvin bespoke millinery">
-    <div class="pv-banner-copy"><div class="pv-kicker">BESPOKE MILLINERY</div><h2>MADE FOR THE MOMENT.</h2><p>One-of-a-kind headpieces designed around your occasion, silhouette and personal style.</p><a class="pv-btn" href="/pages/custom-designs">DISCOVER BESPOKE</a></div>
+    {% if section.settings.banner_image != blank %}{{ section.settings.banner_image | image_url: width: 2400 | image_tag: loading: 'lazy', alt: section.settings.banner_title }}{% else %}<img src="{{ 'marie-hero-03.jpg' | asset_url }}" alt="{{ section.settings.banner_title | escape }}">{% endif %}
+    <div class="pv-banner-copy"><div class="pv-kicker">{{ section.settings.banner_kicker }}</div><h2>{{ section.settings.banner_title }}</h2><div class="rte">{{ section.settings.banner_text }}</div>{% if section.settings.banner_button_label != blank %}<a class="pv-btn" href="{{ section.settings.banner_button_link }}">{{ section.settings.banner_button_label }}</a>{% endif %}</div>
   </section>
 
-  <section class="pv-footer-note"><div class="pv-kicker">MARIE GALVIN MILLINERY</div><h3>Modern heirlooms for unforgettable occasions.</h3></section>
+  <section class="pv-footer-note"><div class="pv-kicker">{{ section.settings.footer_kicker }}</div><h3>{{ section.settings.footer_title }}</h3></section>
 </section>
 
 {% schema %}
-{"name":"Marie Prestige Vogue","settings":[],"presets":[{"name":"Marie Prestige Vogue"}]}
+{
+  "name": "Marie Prestige Vogue",
+  "settings": [
+    {"type":"header","content":"Hero"},
+    {"type":"image_picker","id":"hero_image","label":"Hero image"},
+    {"type":"text","id":"hero_kicker","label":"Eyebrow","default":"NEW COLLECTION"},
+    {"type":"text","id":"hero_title","label":"Heading","default":"MARIE GALVIN MILLINERY"},
+    {"type":"text","id":"hero_button_label","label":"Button label","default":"DISCOVER PRODUCTS"},
+    {"type":"url","id":"hero_button_link","label":"Button link"},
+
+    {"type":"header","content":"First product row"},
+    {"type":"collection","id":"primary_collection","label":"Collection"},
+    {"type":"text","id":"primary_kicker","label":"Eyebrow","default":"THE LATEST"},
+    {"type":"text","id":"primary_title","label":"Heading","default":"New arrivals"},
+    {"type":"text","id":"primary_link_label","label":"Link label","default":"View all"},
+    {"type":"range","id":"product_limit","label":"Products per row","min":2,"max":8,"step":1,"default":4},
+
+    {"type":"header","content":"Editorial"},
+    {"type":"image_picker","id":"editorial_image","label":"Image"},
+    {"type":"text","id":"editorial_kicker","label":"Eyebrow","default":"THE ATELIER"},
+    {"type":"text","id":"editorial_title","label":"Heading","default":"CRAFTED BY HAND. WORN WITH INTENTION."},
+    {"type":"richtext","id":"editorial_text","label":"Text","default":"<p>Distinctive millinery shaped by traditional craft, sculptural form and a contemporary point of view.</p>"},
+    {"type":"text","id":"editorial_link_label","label":"Link label","default":"DISCOVER MARIE"},
+    {"type":"url","id":"editorial_link","label":"Link"},
+
+    {"type":"header","content":"Second product row"},
+    {"type":"collection","id":"secondary_collection","label":"Collection"},
+    {"type":"text","id":"secondary_kicker","label":"Eyebrow","default":"SIGNATURE PIECES"},
+    {"type":"text","id":"secondary_title","label":"Heading","default":"The occasion edit"},
+    {"type":"text","id":"secondary_link_label","label":"Link label","default":"View all"},
+
+    {"type":"header","content":"Bespoke banner"},
+    {"type":"image_picker","id":"banner_image","label":"Image"},
+    {"type":"text","id":"banner_kicker","label":"Eyebrow","default":"BESPOKE MILLINERY"},
+    {"type":"text","id":"banner_title","label":"Heading","default":"MADE FOR THE MOMENT."},
+    {"type":"richtext","id":"banner_text","label":"Text","default":"<p>One-of-a-kind headpieces designed around your occasion, silhouette and personal style.</p>"},
+    {"type":"text","id":"banner_button_label","label":"Button label","default":"DISCOVER BESPOKE"},
+    {"type":"url","id":"banner_button_link","label":"Button link"},
+
+    {"type":"header","content":"Closing statement"},
+    {"type":"text","id":"footer_kicker","label":"Eyebrow","default":"MARIE GALVIN MILLINERY"},
+    {"type":"text","id":"footer_title","label":"Heading","default":"Modern heirlooms for unforgettable occasions."}
+  ],
+  "blocks": [
+    {
+      "type":"category",
+      "name":"Category tile",
+      "limit":3,
+      "settings":[
+        {"type":"image_picker","id":"image","label":"Image"},
+        {"type":"text","id":"title","label":"Title","default":"Category"},
+        {"type":"text","id":"subtitle","label":"Subtitle","default":"Shop collection"},
+        {"type":"url","id":"link","label":"Link"}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Marie Prestige Vogue",
+      "blocks":[{"type":"category"},{"type":"category"},{"type":"category"}]
+    }
+  ]
+}
 {% endschema %}
