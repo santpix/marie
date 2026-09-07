@@ -1,4 +1,4 @@
-/* Marie Galvin Millinery header — Horizon configured for a Prestige/Vogue-style overlay */
+/* Marie Galvin Millinery header — Prestige/Vogue native Shopify header */
 {
   "type": "header",
   "name": "t:names.header",
@@ -37,7 +37,11 @@
         "header-logo": {
           "type": "_header-logo",
           "static": true,
-          "settings": {"hide_logo_on_home_page": false,"padding-block-start": 0,"padding-block-end": 0},
+          "settings": {
+            "hide_logo_on_home_page": false,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
           "blocks": {}
         },
         "header-menu": {
@@ -46,7 +50,7 @@
           "settings": {
             "menu": "main-menu",
             "type_font_primary_size": "0.75rem",
-            "menu_font_style": "inverse",
+            "menu_font_style": "regular",
             "type_font_primary_link": "body",
             "type_case_primary_link": "uppercase",
             "menu_style": "featured_products",
@@ -81,11 +85,11 @@
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,
-        "enable_transparent_header_home": true,
+        "enable_transparent_header_home": false,
         "enable_transparent_header_product": false,
         "enable_transparent_header_collection": false
       }
     }
   },
-  "order": ["header_announcements_9jGBFp","header_section"]
+  "order": ["header_announcements_9jGBFp", "header_section"]
 }
