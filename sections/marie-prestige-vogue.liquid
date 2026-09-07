@@ -1,0 +1,47 @@
+{{ 'marie-prestige-vogue.css' | asset_url | stylesheet_tag }}
+{% assign pv_products = collections.all.products %}
+<section class="pv">
+  <div class="pv-announcement">COMPLIMENTARY SHIPPING — MARIE GALVIN MILLINERY</div>
+  <header class="pv-header">
+    <a href="#" class="pv-menu" aria-label="Menu"><span></span><span></span><span></span></a>
+    <a class="pv-logo" href="{{ routes.root_url }}"><img src="{{ 'marie-logo.jpg' | asset_url }}" alt="{{ shop.name | escape }}"></a>
+    <nav class="pv-tools"><a href="{{ routes.search_url }}">Search</a>{% if shop.customer_accounts_enabled %}<a href="{{ routes.account_url }}">Account</a>{% endif %}<a href="{{ routes.cart_url }}">Bag {{ cart.item_count }}</a></nav>
+  </header>
+
+  <section class="pv-hero">
+    <img src="{{ 'marie-hero-01.jpg' | asset_url }}" alt="Marie Galvin Millinery">
+    <div class="pv-hero-copy"><div class="pv-kicker">NEW COLLECTION</div><h1>MARIE GALVIN MILLINERY</h1><a class="pv-btn" href="{{ routes.all_products_collection_url }}">DISCOVER PRODUCTS</a></div>
+  </section>
+
+  <section class="pv-products">
+    <div class="pv-head"><div><div class="pv-kicker">THE LATEST</div><h2>New arrivals</h2></div><a href="{{ routes.all_products_collection_url }}">View all</a></div>
+    <div class="pv-grid">{% for product in pv_products limit: 4 %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
+  </section>
+
+  <section class="pv-editorial">
+    <div class="pv-editorial-media"><img src="{{ 'marie-lounging.jpg' | asset_url }}" alt="Marie Galvin editorial"></div>
+    <div class="pv-editorial-copy"><div class="pv-kicker">THE ATELIER</div><h2>CRAFTED BY HAND.<br>WORN WITH INTENTION.</h2><p>Distinctive millinery shaped by traditional craft, sculptural form and a contemporary point of view.</p><p><a href="/pages/about">DISCOVER MARIE →</a></p></div>
+  </section>
+
+  <section class="pv-categories">
+    <a class="pv-cat" href="/collections/kentucky-derby-hats"><img src="{{ 'marie-blog-autumn.jpg' | asset_url }}" alt=""><span>Race Day</span><small>Shop collection</small></a>
+    <a class="pv-cat" href="/collections/wedding-hats"><img src="{{ 'marie-blog-black-white.jpg' | asset_url }}" alt=""><span>Weddings</span><small>Shop collection</small></a>
+    <a class="pv-cat" href="/collections/ready-to-wear"><img src="{{ 'marie-blog-yellow-paris.jpg' | asset_url }}" alt=""><span>Ready to Wear</span><small>Shop collection</small></a>
+  </section>
+
+  <section class="pv-products">
+    <div class="pv-head"><div><div class="pv-kicker">SIGNATURE PIECES</div><h2>The occasion edit</h2></div><a href="{{ routes.all_products_collection_url }}">View all</a></div>
+    <div class="pv-grid">{% for product in pv_products offset: 4 limit: 4 %}<article class="pv-card"><a class="pv-card-media" href="{{ product.url }}">{% if product.featured_image %}<img src="{{ product.featured_image | image_url: width: 1400 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" loading="lazy">{% endif %}</a><div class="pv-card-meta"><a href="{{ product.url }}">{{ product.title }}</a><span>{{ product.price | money }}</span></div></article>{% endfor %}</div>
+  </section>
+
+  <section class="pv-banner">
+    <img src="{{ 'marie-hero-03.jpg' | asset_url }}" alt="Marie Galvin bespoke millinery">
+    <div class="pv-banner-copy"><div class="pv-kicker">BESPOKE MILLINERY</div><h2>MADE FOR THE MOMENT.</h2><p>One-of-a-kind headpieces designed around your occasion, silhouette and personal style.</p><a class="pv-btn" href="/pages/custom-designs">DISCOVER BESPOKE</a></div>
+  </section>
+
+  <section class="pv-footer-note"><div class="pv-kicker">MARIE GALVIN MILLINERY</div><h3>Modern heirlooms for unforgettable occasions.</h3></section>
+</section>
+
+{% schema %}
+{"name":"Marie Prestige Vogue","settings":[],"presets":[{"name":"Marie Prestige Vogue"}]}
+{% endschema %}
