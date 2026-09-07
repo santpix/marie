@@ -4,17 +4,20 @@
 {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">{%- endif -%}
 {%- render 'view-transition-opt-in' -%}{%- render 'meta-tags' -%}{%- render 'stylesheets' -%}{%- render 'card-hover-effect-styles' -%}{%- render 'fonts' -%}{%- render 'scripts' -%}{%- render 'theme-styles-variables' -%}{%- render 'color-palette' -%}
 {{ 'marie-editorial.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}
-<style>
-.template-index #header-group{display:block!important;position:absolute!important;z-index:12000!important;top:0!important;left:0!important;width:100%!important;pointer-events:auto!important}
-.template-index #header-group .shopify-section:first-child,.template-index .header-announcements,.template-index .announcement-bar{display:block!important;visibility:visible!important;opacity:1!important;background:#f0d55c!important;color:#111!important;position:relative!important;z-index:2!important}
-.template-index #header-group .shopify-section:first-child *,.template-index .header-announcements *,.template-index .announcement-bar *{color:#111!important}
-.template-index #header-component,.template-index #header-component .header,.template-index #header-group .header-section{display:block!important;visibility:visible!important;opacity:1!important}
-.template-index #header-component[transparent],.template-index #header-component[transparent] .header,.template-index #header-group .header-section:has(#header-component[transparent]){background:transparent!important;box-shadow:none!important;border:0!important;backdrop-filter:none!important}
-.template-index #header-component[transparent] *{color:#fff!important}.template-index #header-component[transparent] svg{fill:currentColor!important;stroke:currentColor!important}
-.template-index #MainContent{position:relative!important;z-index:1!important}
-@media(min-width:990px){.template-index #header-component{min-height:82px!important}.template-index #header-component .header{min-height:82px!important;padding-inline:clamp(28px,4vw,60px)!important}.template-index #header-component .header__row--top{min-height:82px!important}.template-index #header-component .header__logo,.template-index #header-component .header-logo,.template-index #header-component .header__heading-link{max-width:240px!important;margin-inline:auto!important}}
-</style>
 {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}{{ content_for_header }}
+<style id="marie-native-header-force">
+#header-group{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;z-index:2147483000!important;top:0!important;left:0!important;width:100%!important;pointer-events:auto!important;height:auto!important;overflow:visible!important}
+#header-group>.shopify-section{display:block!important;visibility:visible!important;opacity:1!important}
+#header-group .header-announcements,#header-group .announcement-bar,#header-group [class*="announcement"]{visibility:visible!important;opacity:1!important}
+#header-group>.shopify-section:first-child{display:block!important;background:#f0d55c!important;color:#111!important;position:relative!important;z-index:4!important}
+#header-group>.shopify-section:first-child *{color:#111!important}
+#header-group .header-section,#header-group #header-component,#header-group #header-component .header{display:block!important;visibility:visible!important;opacity:1!important;position:relative!important;z-index:3!important}
+#header-group #header-component[transparent],#header-group #header-component[transparent] .header,#header-group .header-section:has(#header-component[transparent]){background:transparent!important;box-shadow:none!important;border:0!important;backdrop-filter:none!important}
+#header-group #header-component[transparent] *{color:#fff!important}
+#header-group #header-component[transparent] svg{fill:currentColor!important;stroke:currentColor!important}
+#MainContent{position:relative!important;z-index:1!important}
+@media(min-width:990px){#header-group #header-component{min-height:82px!important}#header-group #header-component .header{min-height:82px!important;padding-inline:clamp(28px,4vw,60px)!important}#header-group #header-component .header__row--top{min-height:82px!important}#header-group #header-component .header__logo,#header-group #header-component .header-logo,#header-group #header-component .header__heading-link{max-width:240px!important;margin-inline:auto!important}}
+</style>
 </head>
 <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }} template-{{ template.name | handle }}">
 {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}{% render 'chat-drawer' %}
