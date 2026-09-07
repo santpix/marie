@@ -1,0 +1,104 @@
+/* Marie Galvin — Prestige / Vogue system override
+   Reconstructs the visible luxury-commerce language without copying proprietary theme code. */
+:root{
+  --pv-ink:#11110f;
+  --pv-paper:#f5f3ee;
+  --pv-white:#fff;
+  --pv-line:rgba(17,17,15,.16);
+  --pv-serif:"Cormorant Garamond","Bodoni 72",Didot,Georgia,serif;
+  --pv-sans:Arial,Helvetica,sans-serif;
+  --pv-page:clamp(20px,4vw,64px);
+  --pv-section:clamp(72px,8vw,128px);
+  --pv-ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--pv-white);color:var(--pv-ink);font-family:var(--pv-sans)}
+body:not(.template-index) #MainContent{padding-top:0}
+body:not(.template-index) #header-group{position:relative;z-index:50;background:#fff}
+body:not(.template-index) #header-group header{border-bottom:1px solid var(--pv-line)!important}
+body:not(.template-index) #header-group a,
+body:not(.template-index) #header-group button{font-family:var(--pv-sans)!important;font-size:10px!important;letter-spacing:.14em!important;text-transform:uppercase!important}
+body:not(.template-index) #header-group img{max-height:52px;object-fit:contain}
+
+/* shared luxury typography */
+.template-product h1,.template-collection h1,.template-search h1,.template-cart h1,
+.template-page h1,.template-blog h1,.template-article h1{font-family:var(--pv-serif)!important;font-weight:400!important;letter-spacing:-.025em!important;text-transform:none!important}
+.template-product h1{font-size:clamp(38px,4vw,68px)!important;line-height:.96!important}
+.template-collection h1,.template-search h1,.template-cart h1{font-size:clamp(46px,6vw,86px)!important;line-height:.93!important}
+.template-product h2,.template-collection h2,.template-search h2,.template-cart h2,
+.template-page h2,.template-blog h2,.template-article h2{font-family:var(--pv-serif)!important;font-weight:400!important;letter-spacing:-.02em!important}
+
+/* collection / search */
+.template-collection #MainContent>.shopify-section:first-child,
+.template-search #MainContent>.shopify-section:first-child{padding-inline:var(--pv-page)!important;padding-top:clamp(52px,6vw,96px)!important;padding-bottom:clamp(38px,5vw,70px)!important;border-bottom:1px solid var(--pv-line)}
+.template-collection #MainContent>.shopify-section:first-child h1,
+.template-search #MainContent>.shopify-section:first-child h1{max-width:1100px;margin:0}
+.template-collection [class*="facets"],.template-search [class*="facets"]{font-family:var(--pv-sans)!important;text-transform:uppercase;letter-spacing:.13em;font-size:10px}
+.template-collection [class*="product-grid"],.template-search [class*="product-grid"]{column-gap:clamp(12px,1.5vw,24px)!important;row-gap:clamp(34px,4vw,64px)!important}
+.template-collection [class*="product-card"],.template-search [class*="product-card"],
+.template-product [class*="product-card"]{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.template-collection [class*="product-card"] img,.template-search [class*="product-card"] img,
+.template-product [class*="product-card"] img{border-radius:0!important;transition:transform .75s var(--pv-ease)}
+.template-collection [class*="product-card"]:hover img,.template-search [class*="product-card"]:hover img,
+.template-product [class*="product-card"]:hover img{transform:scale(1.02)}
+.template-collection [class*="product-card"] a,.template-search [class*="product-card"] a,
+.template-product [class*="product-card"] a{font-family:var(--pv-sans)!important;font-size:10px!important;letter-spacing:.08em!important;text-transform:uppercase}
+.template-collection [class*="price"],.template-search [class*="price"],.template-product [class*="price"]{font-family:var(--pv-sans)!important;font-size:11px!important;letter-spacing:.04em!important}
+
+/* product detail */
+.template-product #MainContent{border-top:0}
+.template-product #MainContent>.shopify-section:first-child{padding-top:clamp(28px,4vw,64px)!important;padding-bottom:clamp(70px,8vw,120px)!important}
+.template-product [class*="product-information"]{gap:clamp(32px,5vw,80px)!important}
+.template-product [class*="product-details"]{padding-right:var(--pv-page)!important}
+.template-product [class*="product-media"] img,
+.template-product [class*="media-gallery"] img{border-radius:0!important;background:var(--pv-paper)}
+.template-product [class*="variant"] button,
+.template-product [class*="variant"] label{border-radius:0!important;text-transform:uppercase!important;letter-spacing:.12em!important;font-size:9px!important;min-height:42px}
+.template-product button[name="add"],
+.template-product [class*="add-to-cart"] button,
+.template-product [class*="buy-buttons"] button:not([class*="shopify-payment-button"]){border-radius:0!important;min-height:52px!important;background:var(--pv-ink)!important;color:#fff!important;border:1px solid var(--pv-ink)!important;font-family:var(--pv-sans)!important;font-size:10px!important;letter-spacing:.16em!important;text-transform:uppercase!important;transition:background .25s,color .25s}
+.template-product button[name="add"]:hover,
+.template-product [class*="add-to-cart"] button:hover{background:#fff!important;color:var(--pv-ink)!important}
+.template-product [class*="description"],.template-product .rte{font-family:var(--pv-sans)!important;font-size:13px!important;line-height:1.8!important;color:rgba(17,17,15,.78)}
+.template-product [class*="accordion"],.template-product details{border-color:var(--pv-line)!important;border-radius:0!important}
+.template-product details summary{font-size:10px!important;letter-spacing:.13em!important;text-transform:uppercase!important}
+.template-product [class*="recommend"]{padding-top:var(--pv-section)!important;padding-bottom:var(--pv-section)!important;border-top:1px solid var(--pv-line)}
+.template-product [class*="recommend"] h2{font-size:clamp(38px,4.7vw,72px)!important;line-height:.95!important}
+
+/* cart drawer + cart page */
+cart-drawer,.cart-drawer,[class*="cart-drawer"]{--drawer-width:min(520px,94vw)}
+cart-drawer dialog,.cart-drawer dialog,[class*="cart-drawer"] dialog{border-radius:0!important;box-shadow:none!important}
+cart-drawer h2,.cart-drawer h2,[class*="cart-drawer"] h2,.template-cart h1{font-family:var(--pv-serif)!important;font-weight:400!important}
+cart-drawer button,.cart-drawer button,[class*="cart-drawer"] button,.template-cart button{border-radius:0!important}
+cart-drawer [name="checkout"],.cart-drawer [name="checkout"],[class*="cart-drawer"] [name="checkout"],.template-cart [name="checkout"]{min-height:52px!important;background:var(--pv-ink)!important;color:#fff!important;text-transform:uppercase!important;letter-spacing:.14em!important;font-size:10px!important}
+.template-cart #MainContent{padding:clamp(56px,7vw,110px) var(--pv-page)!important}
+.template-cart table{border-color:var(--pv-line)!important}
+
+/* search modal */
+search-modal,[class*="search-modal"]{font-family:var(--pv-sans)}
+search-modal dialog,[class*="search-modal"] dialog{border-radius:0!important;background:var(--pv-paper)!important}
+search-modal input,[class*="search-modal"] input{font-family:var(--pv-serif)!important;font-size:clamp(28px,4vw,56px)!important;border-radius:0!important;border-width:0 0 1px!important;background:transparent!important}
+
+/* footer */
+footer{border-top:1px solid var(--pv-line);background:var(--pv-paper)}
+footer h2{font-family:var(--pv-serif)!important;font-weight:400!important;font-size:clamp(34px,4vw,58px)!important;letter-spacing:-.025em!important}
+footer a,footer button,footer label{font-family:var(--pv-sans)!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase}
+footer input{border-radius:0!important;background:transparent!important}
+
+/* remove Horizon visual residue */
+body:not(.template-index) .button,body:not(.template-index) button[class*="button"]{border-radius:0!important;box-shadow:none!important}
+body:not(.template-index) [style*="border-radius"],body:not(.template-index) [class*="card"]{--border-radius:0px}
+
+/* mobile */
+@media(max-width:749px){
+  :root{--pv-page:18px;--pv-section:68px}
+  body:not(.template-index) #header-group img{max-height:42px}
+  .template-product #MainContent>.shopify-section:first-child{padding-top:0!important}
+  .template-product [class*="product-details"]{padding:30px 18px 56px!important}
+  .template-product h1{font-size:42px!important}
+  .template-collection h1,.template-search h1,.template-cart h1{font-size:50px!important}
+  .template-collection [class*="product-grid"],.template-search [class*="product-grid"]{column-gap:8px!important;row-gap:30px!important}
+  footer{padding-inline:0}
+}
+
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
