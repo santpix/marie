@@ -1,10 +1,10 @@
 {
   "sections": {
-    "vogue_experience": {
-      "type": "marie-vogue-experience",
-      "name": "Marie Vogue Experience",
+    "prestige_vogue": {
+      "type": "marie-prestige-vogue",
+      "name": "Marie Prestige Vogue",
       "settings": {}
     }
   },
-  "order": ["vogue_experience"]
+  "order": ["prestige_vogue"]
 }
