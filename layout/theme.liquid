@@ -3,7 +3,7 @@
 <head>
 {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">{%- endif -%}
 {%- render 'view-transition-opt-in' -%}{%- render 'meta-tags' -%}{%- render 'stylesheets' -%}{%- render 'card-hover-effect-styles' -%}{%- render 'fonts' -%}{%- render 'scripts' -%}{%- render 'theme-styles-variables' -%}{%- render 'color-palette' -%}
-{{ 'marie-editorial.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}
+{{ 'marie-editorial.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue.css' | asset_url | stylesheet_tag }}{{ 'marie-vogue-experience.css' | asset_url | stylesheet_tag }}{{ 'prestige-vogue-global.css' | asset_url | stylesheet_tag }}
 {% if request.design_mode %}{%- render 'theme-editor' -%}{% endif %}{{ content_for_header }}
 <style id="marie-native-header-force">
 .template-index #header-group{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;z-index:12000!important;top:0!important;left:0!important;width:100%!important;height:auto!important;pointer-events:auto!important;background:transparent!important}
