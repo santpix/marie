@@ -1,5 +1,10 @@
 /* Supplied-reference pass: tighten Marie to Prestige/Vogue visual proportions */
 .template-index .mvx{background:#fff}
+/* IMPORTANT: use Shopify native announcement/header only on home. The MVX duplicate chrome was creating the white strip/extra header layer above the main nav. */
+.template-index .mvx-announcement,.template-index .mvx-home-header{display:none!important}
+.template-index #header-group,.template-index #header-group>.shopify-section{margin:0!important;padding:0!important;border:0!important}
+.template-index #header-group .header-section{margin:0!important}
+.template-index .mvx,.template-index #MainContent,.template-index .content-for-layout{margin-top:0!important;padding-top:0!important}
 .template-index .mvx-hero{height:min(100svh,980px);min-height:760px}
 .template-index .mvx-hero__copy{bottom:9vh;width:min(760px,86vw)}
 .template-index .mvx-hero__copy span{font-size:8px;letter-spacing:.22em}
