@@ -1,0 +1,44 @@
+/* Supplied-reference pass: tighten Marie to Prestige/Vogue visual proportions */
+.template-index .mvx{background:#fff}
+.template-index .mvx-hero{height:min(100svh,980px);min-height:760px}
+.template-index .mvx-hero__copy{bottom:9vh;width:min(760px,86vw)}
+.template-index .mvx-hero__copy span{font-size:8px;letter-spacing:.22em}
+.template-index .mvx-hero__copy h1{font-family:var(--mvx-serif);font-size:clamp(46px,5.8vw,92px);font-weight:400;line-height:.88;letter-spacing:-.035em;text-transform:none;margin:18px 0 30px}
+.template-index .mvx-hero__copy a{min-height:44px;padding:0 26px;font-size:9px}
+.template-index .mvx-products{padding:120px clamp(24px,4vw,64px) 128px}
+.template-index .mvx-section-head{margin-bottom:48px;align-items:flex-end}
+.template-index .mvx-section-head h2{font-family:var(--mvx-serif);font-size:clamp(40px,4.8vw,74px);line-height:.93;letter-spacing:-.035em;text-transform:none}
+.template-index .mvx-product-track{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.template-index .mvx-card__media{aspect-ratio:3/4;background:#f5f4f0}
+.template-index .mvx-card__meta{padding-top:11px;font-size:9px;letter-spacing:.07em}
+.template-index .mvx-yellow{margin-top:46px;padding:14px 28px}
+.template-index .mvx-marquee{height:160px;justify-content:flex-start;padding-inline:3vw;gap:30px}
+.template-index .mvx-marquee span{font-family:var(--mvx-serif);font-size:clamp(62px,8vw,132px);font-weight:400;letter-spacing:-.055em;text-transform:none}
+.template-index .mvx-marquee img{width:82px;height:108px}
+.template-index .mvx-categories a{min-height:640px}
+.template-index .mvx-categories span{font-family:var(--mvx-serif);font-size:32px;line-height:1;letter-spacing:-.02em;text-transform:none;bottom:54px}
+.template-index .mvx-categories b{bottom:28px}
+.template-index .mvx-ba{padding:120px 5vw 130px}
+.template-index .mvx-ba__title h2{font-family:var(--mvx-serif);font-size:clamp(64px,8vw,126px);font-weight:400;letter-spacing:-.055em;line-height:.82;text-transform:none}
+.template-index .mvx-ba__stage{max-width:1180px;height:min(70vw,760px)}
+.template-index .mvx-look{grid-template-columns:1.15fr .85fr;min-height:820px;border-top:1px solid #111;border-bottom:1px solid #111}
+.template-index .mvx-look__image{padding:64px}
+.template-index .mvx-look__image h2{font-family:var(--mvx-serif);font-size:clamp(54px,6vw,94px);font-weight:400;line-height:.87;letter-spacing:-.04em;text-transform:none}
+.template-index .mvx-look__products{padding:70px 48px;gap:18px}
+.template-index .mvx-promo{min-height:820px;padding:8vw}
+.template-index .mvx-promo__copy{max-width:620px}
+.template-index .mvx-promo__copy h2{font-family:var(--mvx-serif);font-size:clamp(58px,6vw,98px);font-weight:400;line-height:.86;letter-spacing:-.04em;text-transform:none}
+.template-index .mvx-split{padding:140px 7vw;gap:8vw}
+.template-index .mvx-split__copy h2{font-family:var(--mvx-serif);font-size:clamp(54px,5.8vw,92px);font-weight:400;line-height:.87;letter-spacing:-.04em;text-transform:none}
+.template-index .mvx-overlap{min-height:900px;padding:8vw}
+.template-index .mvx-overlap__copy h2{font-family:var(--mvx-serif);font-size:clamp(54px,5.8vw,92px);font-weight:400;line-height:.87;letter-spacing:-.04em}
+.template-index .mvx-featured{min-height:820px;border-top:1px solid #111;border-bottom:1px solid #111}
+.template-index .mvx-featured__info h2{font-family:var(--mvx-serif);font-size:clamp(50px,5.5vw,86px);font-weight:400;line-height:.9;letter-spacing:-.04em}
+.template-index .mvx-inspirations,.template-index .mvx-journal,.template-index .mvx-social{padding:120px 4vw}
+.template-index .mvx-journal-grid{gap:28px}
+.template-index .mvx-journal-grid h3{font-family:var(--mvx-serif);font-size:clamp(24px,2.2vw,36px);font-weight:400;line-height:1.05;letter-spacing:-.02em}
+.template-index .mvx-social h2{font-family:var(--mvx-serif);font-size:clamp(44px,5vw,80px);font-weight:400;letter-spacing:-.04em}
+.template-index .mvx-newsletter{padding:72px 24px}
+.template-index .mvx-newsletter p{font-family:var(--mvx-serif);font-size:clamp(38px,4vw,64px);font-weight:400;line-height:.95;margin:0 0 12px}
+@media(max-width:900px){.template-index .mvx-product-track{grid-template-columns:repeat(2,minmax(0,1fr))}.template-index .mvx-categories a{min-height:72vw}.template-index .mvx-look{grid-template-columns:1fr}.template-index .mvx-featured{grid-template-columns:1fr}}
+@media(max-width:749px){.template-index .mvx-hero{min-height:680px;height:92svh}.template-index .mvx-hero__copy{bottom:8vh;width:88vw}.template-index .mvx-hero__copy h1{font-size:46px;line-height:.9}.template-index .mvx-products{padding:78px 16px 86px}.template-index .mvx-product-track{gap:10px}.template-index .mvx-section-head h2{font-size:46px}.template-index .mvx-marquee{height:110px;padding-inline:16px}.template-index .mvx-marquee span{font-size:58px}.template-index .mvx-marquee img{width:58px;height:78px}.template-index .mvx-categories a{min-height:115vw}.template-index .mvx-categories span{font-size:34px}.template-index .mvx-ba{padding:82px 16px}.template-index .mvx-ba__title h2{font-size:62px}.template-index .mvx-look__image{min-height:115vw;padding:24px}.template-index .mvx-look__image h2{font-size:54px}.template-index .mvx-promo{min-height:120vw;padding:28px}.template-index .mvx-promo__copy h2{font-size:56px}.template-index .mvx-split{padding:88px 20px}.template-index .mvx-split__copy h2{font-size:54px}.template-index .mvx-overlap{min-height:760px}.template-index .mvx-overlap__copy h2{font-size:50px}.template-index .mvx-inspirations,.template-index .mvx-journal,.template-index .mvx-social{padding:82px 16px}}
